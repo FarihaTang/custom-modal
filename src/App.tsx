@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Modal from "./component/Modal";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [isOpen, setIsOpen] = useState(false);
+    function toggleOpen() {
+        setIsOpen((prevState) => !prevState);
+    }
+    function confirmCallback() {
+        toggleOpen();
+    }
+    return (
+        <>
+            <button onClick={() => toggleOpen()}>custom modal</button>
+            <Modal
+                open={isOpen}
+                onClose={toggleOpen}
+                onConfirm={confirmCallback}
+                innerText="Are you sure?"
+            ></Modal>
+        </>
+    );
 }
 
 export default App;
