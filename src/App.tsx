@@ -1,12 +1,13 @@
 import React, { Suspense, useState } from "react";
 import "./App.css";
 import Modal from "./component/Modal";
+import User from "./component/User";
 import logo from "./logo.svg";
 
-const LazyLoding = React.lazy(async () => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    return import("./component/LazyLoding");
-});
+// const LazyLoding = React.lazy(async () => {
+//     await new Promise((resolve) => setTimeout(resolve, 1000));
+//     return import("./component/LazyLoding");
+// });
 function App() {
     // Modal
     const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,8 @@ function App() {
     return (
         <>
             <Suspense fallback={<img src={logo} alt="" />}>
-                <LazyLoding></LazyLoding>
+                {/* <LazyLoding></LazyLoding> */}
+                <User />
             </Suspense>
             <button onClick={() => toggleOpen()}>custom modal</button>
             <Modal
