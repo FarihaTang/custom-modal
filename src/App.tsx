@@ -5,6 +5,7 @@ import MyModal from "./component/MyModal";
 import User from "./component/User";
 import Error from "./component/Error";
 import logo from "./logo.svg";
+import TodoList from "./component/TodoList";
 
 // const LazyLoding = React.lazy(async () => {
 //     await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -40,6 +41,7 @@ function App() {
                 <Link to="/">Home</Link>
                 <Link to="/modal">Modal</Link>
                 <Link to="/user">User</Link>
+                <Link to="/todo">Todo</Link>
             </nav>
             {/* {element} */}
             <Routes>
@@ -54,6 +56,7 @@ function App() {
                         </Suspense>
                     }
                 ></Route>
+                <Route path="/todo" element={<TodoList />}></Route>
                 <Route path="*" element={<Error />}></Route>
             </Routes>
         </>
