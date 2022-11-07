@@ -1,0 +1,7 @@
+.hocContainer {
+    width: fit-content;
+    margin: 0 auto;
+}
+.hocContainer .hocContent {
+    display: flex;
+}
